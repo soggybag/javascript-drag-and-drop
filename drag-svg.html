@@ -1,0 +1,151 @@
+<!-- Use id's for JavaScript and Class names for CSS styles -->
+
+<!-- Drag and store elements inside container -->
+<div id="container" class="container">
+  <!-- Use this as a source for parts -->
+  <div id="well" class="well"></div>
+  <!-- This is the SVG object that will render the parts -->
+  <svg id="svg-container" width="500" height="500">
+    <!-- This is big rectangle -->
+    <rect x='0' y='0' width='500' height='500' style='stroke:#000; fill:none' />
+    
+    <!-- Provides a source for definitions. These are not displayed 
+    The code below gets #resistor and clones it each time a new 
+    resistor is needed. --> 
+    <defs>
+      <g id="resistor" transform="translate(0.000000, 0.000000)" stroke="#979797">
+        <!-- The resistor has a circle at each end -->
+        <circle id="Oval" fill="#D8D8D8" cx="3" cy="5" r="3"></circle>
+        <circle id="Oval-2" fill="#D8D8D8" cx="43" cy="5" r="3"></circle>
+        <!-- The squiggly line between the circles -->
+        <polyline id="Path-3" fill="none" points="3 5 13 5 16 0 19 10 22 0 25 10 28 0 31 10 33 5 43 5"></polyline>
+      </g>
+    </defs>
+  </svg>
+</div>
+
+
+<style>
+  /* This parent for all  */
+  
+  .container {
+    width: 500px;
+    height: 500px;
+  }
+  
+  .well {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+    left: 5px;
+    top: 5px;
+  }
+  
+  .alien {
+    /* These will position absolute */
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url(images/e.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* border: 1px solid #000; */
+  }
+
+</style>
+
+
+
+<script>
+  // Get reference to DOM elements via ids
+  const well = getElement('well')
+  const container = getElement('container')
+  const svgContainer = getElement('svg-container')
+
+  // Defines the currently selected draggable
+  let selected = null
+
+  // Define a mouse down event to handle pressing the well
+  well.onmousedown = function(e) {
+    // Make a new "alien"
+    const part = makePart()
+    // Make a new draggable that references the alien at the mouse position
+    const draggable = new Draggable(part, e.pageX, e.pageY)
+    // Mark this as selected
+    selected = draggable
+  }
+
+  // Define a mouse move on container
+  svgContainer.onmousemove = function(e) {
+    if (selected === null) return // Cancel this if nothing selected
+    // Drag the selected element
+    selected.drag(e.pageX, e.pageY)
+  }
+
+  // Listen for mouse up on the window
+  window.onmouseup = function(e) {
+    if (selected === null) return // if nothing is selected cancel this
+    // Snap the selected element
+    selected.snap()
+    // Set selected to null
+    selected = null
+  }
+
+  // This source element is defined in defs and is not visible.
+  // We will will clone this each time a resistor is added. 
+  const resistorSource = getElement('resistor')
+
+  function makePart() {
+    // Clone the resistor to create a new SVG element
+    const el = resistorSource.cloneNode(true)
+    // append the element to the svgContainer
+    svgContainer.appendChild(el)
+    // Return the element
+    return el
+  }
+
+  // A helper function to get elements by id
+  function getElement(id) {
+    return document.getElementById(id)
+  }
+
+
+  // *****************************************
+
+  // Draggable class 
+
+  // The Draggable class 
+  function Draggable(el, x, y) {
+    this.x = x // Has three properties
+    this.y = y
+    this.el = el // This is DOM element!
+  }
+
+  // Define some methods for the Draggable class 
+
+  // Drag - moves the element to x and y
+  Draggable.prototype.drag = function(x, y) {
+    this.x = x
+    this.y = y
+    this.translate()
+  }
+
+  // Snap - rounds the position to the nearest 40px increment
+  const partSize = 40
+
+  Draggable.prototype.snap = function() {
+    this.x = Math.round(this.x / partSize) * partSize
+    this.y = Math.round(this.y / partSize) * partSize
+    this.translate()
+  }
+
+  // Translates - Sets translate with x and y to position element 
+  // Not sure what's best SVG elements have x, y props you can 
+  // also use translate() and translate3d()? 
+  Draggable.prototype.translate = function() {
+    const offset = partSize / 2
+    this.el.style.transform = `translate(${this.x - offset}px, ${this.y - offset}px)`
+  }
+
+</script>

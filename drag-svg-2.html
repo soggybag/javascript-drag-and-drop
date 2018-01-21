@@ -1,0 +1,237 @@
+<!-- Use id's for JavaScript and Class names for CSS styles -->
+
+<!-- Drag and store elements inside container -->
+<div id="container" class="container">
+  <!-- Use this as a source for parts -->
+  <div id="well-1" class="well"></div>
+  <div id="well-2" class="well"></div>
+  <!-- This is the SVG object that will render the parts -->
+  <svg id="svg-container" width="500" height="500">
+    <!-- This is big rectangle -->
+    <rect x='0' y='0' width='500' height='500' style='stroke:#000; fill:#fee'/>
+    
+    <!-- Provides a source for definitions. These are not displayed 
+    The code below gets #resistor and clones it each time a new 
+    resistor is needed. --> 
+    <defs>
+     
+      <g id="resistor" class="resistor part" transform="translate(0.000000, 0.000000)" stroke="#979797">
+        <!-- The resistor has a circle at each end -->
+        <circle id="Oval" fill="#D8D8D8" cx="3" cy="5" r="3"></circle>
+        <circle id="Oval-2" fill="#D8D8D8" cx="43" cy="5" r="3"></circle>
+        <!-- The squiggly line between the circles -->
+        <polyline id="Path-3" fill="none" points="3 5 13 5 16 0 19 10 22 0 25 10 28 0 31 10 33 5 43 5"></polyline>
+      </g>
+      
+      <g id="capaciter" class="capaciter part" transform="translate(0.000000, 0.000000)" stroke="#979797">
+        <path d="M3,10 L20,10 M26,10 L43,10" id="Path-3"></path>
+        <circle id="Oval" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
+        <circle id="Oval-2" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
+        <path d="M20.5,0.5 L20.5,19.5" id="Line" stroke-linecap="square"></path>
+        <path d="M25.5,0.5 L25.5,19.5" id="Line-Copy" stroke-linecap="square"></path>
+      </g>
+      
+    </defs>
+  </svg>
+</div>
+
+
+<style>
+  /* This parent for all  */
+  
+  .container {
+    width: 500px;
+    height: 500px;
+  }
+  
+  .well {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  #well-1 {
+    left: 5px;
+    top: 5px;
+  }
+  
+  #well-2 {
+    left: 5px;
+    top: 55px;
+  }
+  
+  .alien {
+    /* These will position absolute */
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url(images/e.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* border: 1px solid #000; */
+  }
+
+</style>
+
+<script>
+  // Get reference to DOM elements via ids
+  // TODO: Abstract this to class "well"
+  const well1 = getElement('well-1') // Make two "wells" for two differen parts
+  const well2 = getElement('well-2') // This needs to be abstracted to scale
+  const container = getElement('container')
+  const svgContainer = getElement('svg-container')
+  // Define an object to hold the parts that are created
+  const parts = {}
+
+  // Defines the currently selected draggable
+  let selected = null
+
+  // Define a mouse down event to handle pressing the well
+  // TODO: abstract this to apply to all wells use an attribute for part name
+  well1.onmousedown = function(e) {
+    newPart("resistor", e.pageX, e.pageY)
+  }
+
+  well2.onmousedown = function(e) {
+    newPart("capaciter", e.pageX, e.pageY)
+  }
+
+  // Pass the name of the part and the x and y
+  function newPart(name, x, y) {
+    // Make a new part
+    const partEl = makePart(name)
+    // Make a new draggle object, really this is a container for properties 
+    // that we need to keep track of parts we drag
+    const part = new Draggable(partEl, x, y)
+    // Every part should have a unique id
+    const partId = getPartId()
+    // Assign the part id to the id of the element
+    partEl.setAttribute('id', partId)
+    // Add the part to the object with it's id as key
+    parts[partId] = part
+    // Mark this as selected
+    part.translate() // Move the new part to it's starting position
+    selected = part
+  }
+
+  // mousedown on the SVG container
+  svgContainer.addEventListener('mousedown', function(e) {
+    // Look for the element with the class name resistor in ancestors of the target
+    const resistor = closest(e.target, '.part')
+    if (resistor === null) return // End here if we don't find anything
+    // Otherwise get the part from the parts object via it's id
+    selected = parts[resistor.getAttribute('id')]
+  })
+
+  // helper function to look for the closest element via class name
+  function closest(elem, selector) {
+    // Borrowed from: 
+    // https://gomakethings.com/climbing-up-and-down-the-dom-tree-with-vanilla-javascript/
+    // Element.matches() polyfill
+    if (!Element.prototype.matches) {
+      Element.prototype.matches =
+        Element.prototype.matchesSelector ||
+        Element.prototype.mozMatchesSelector ||
+        Element.prototype.msMatchesSelector ||
+        Element.prototype.oMatchesSelector ||
+        Element.prototype.webkitMatchesSelector ||
+        function(s) {
+          var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+            i = matches.length;
+          while (--i >= 0 && matches.item(i) !== this) {}
+          return i > -1;
+        };
+    }
+
+    // Get closest match
+    for (; elem && elem !== document; elem = elem.parentNode) {
+      if (elem.matches(selector)) return elem;
+    }
+
+    return null;
+  }
+
+  // Define a mouse move on container
+  svgContainer.onmousemove = function(e) {
+    if (selected === null) return // Cancel this if nothing selected
+    selected.drag(e.pageX, e.pageY) // Move the selected element
+  }
+
+  // Listen for mouse up on the window
+  window.onmouseup = function(e) {
+    if (selected === null) return // if nothing is selected cancel this
+    selected.snap() // Snap the selected element
+    selected = null // Set selected to null
+  }
+
+  // This source element is defined in defs and is not visible.
+  // We will will clone this each time a resistor is added. 
+  const resistorSource = getElement('resistor')
+  const capaciterSource = getElement('capaciter')
+  // Store the source parts in an object for easy access
+  const partsSource = {
+    resistor: resistorSource,
+    capaciter: capaciterSource
+  }
+
+  function makePart(name) {
+    // Clone the resistor to create a new SVG element
+    // Get the source part from the object
+    console.log(partsSource[name], name)
+    const el = partsSource[name].cloneNode(true)
+    svgContainer.appendChild(el) // append the element to the svgContainer
+    return el // Return the element
+  }
+
+  // A helper function to get elements by id
+  function getElement(id) {
+    return document.getElementById(id)
+  }
+
+  let partCount = 0 // 
+
+  function getPartId() {
+    partCount += 1 // Add 1 each time to create unique ids
+    return "part" + partCount // Return the id
+  }
+
+
+  // *****************************************
+
+  // Draggable class 
+
+  // The Draggable class 
+  function Draggable(el, x, y) {
+    this.x = x // Has three properties
+    this.y = y
+    this.el = el // This is DOM element!
+  }
+
+  // Define some methods for the Draggable class 
+
+  // Drag - moves the element to x and y
+  Draggable.prototype.drag = function(x, y) {
+    this.x = x
+    this.y = y
+    this.translate()
+  }
+
+  // Snap - rounds the position to the nearest 40px increment
+  const partSize = 40
+
+  Draggable.prototype.snap = function() {
+    this.x = Math.round(this.x / partSize) * partSize
+    this.y = Math.round(this.y / partSize) * partSize
+    this.translate()
+  }
+
+  // Translates - Sets translate with x and y to position element 
+  // Not sure what's best SVG elements have x, y props you can 
+  // also use translate() and translate3d()? 
+  Draggable.prototype.translate = function() {
+    const offset = partSize / 2
+    this.el.style.transform = `translate(${this.x - offset}px, ${this.y - offset}px)`
+  }
+
+</script>
