@@ -9,20 +9,19 @@
   <svg id="svg-container" width="500" height="500">
     <!-- This is big rectangle -->
     <rect x='0' y='0' width='500' height='500' style='stroke:#000; fill:#fee'/>
-    
-    <!-- Provides a source for definitions. These are not displayed 
-    The code below gets #resistor and clones it each time a new 
-    resistor is needed. --> 
+
+    <!-- Provides a source for definitions. These are not displayed
+    The code below gets #resistor and clones it each time a new
+    resistor is needed. -->
     <defs>
-     
+
       <g id="resistor" class="resistor part" transform="translate(1.000000, 0.000000)">
         <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
-        <path d="" id="Path-2" stroke="#979797"></path>
         <polyline id="Path-3" stroke="#979797" fill="none" points="3 10 13 10 16 5 19 15 22 5 25 15 28 5 31 15 33 10 43 10"></polyline>
         <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
         <circle id="Oval-2" stroke="#979797" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
       </g>
-      
+
       <g id="capaciter" class="capaciter part" transform="translate(0.000000, 0.000000)">
         <rect id="Rectangle" fill-opacity="0.15" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
         <path d="M3,10 L20,10 M26,10 L43,10" id="Path-3" stroke="#979797"></path>
@@ -30,8 +29,8 @@
         <circle id="Oval-2" stroke="#979797" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
         <path d="M20.5,0.5 L20.5,19.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
         <path d="M25.5,0.5 L25.5,19.5" id="Line-Copy" stroke="#979797" stroke-linecap="square"></path>
-      </g> 
-      
+      </g>
+
     </defs>
   </svg>
 </div>
@@ -39,30 +38,31 @@
 
 <style>
   /* This parent for all  */
-  
+
   .container {
+    position: relative;
     width: 500px;
     height: 500px;
   }
-  
+
   .well {
     position: absolute;
     width: 40px;
     height: 40px;
     background-color: rgba(0, 0, 0, 0.1);
   }
-  
+
   #well-1 {
     left: 5px;
     top: 5px;
   }
-  
+
   #well-2 {
     left: 5px;
     top: 55px;
   }
-  
-  .alien {
+
+  .part {
     /* These will position absolute */
     position: absolute;
     width: 32px;
@@ -102,7 +102,7 @@
   function newPart(name, x, y) {
     // Make a new part
     const partEl = makePart(name)
-    // Make a new draggle object, really this is a container for properties 
+    // Make a new draggle object, really this is a container for properties
     // that we need to keep track of parts we drag
     const part = new Draggable(partEl, x, y)
     // Every part should have a unique id
@@ -114,6 +114,8 @@
     // Mark this as selected
     part.translate() // Move the new part to it's starting position
     selected = part
+
+    console.log(parts)
   }
 
   // mousedown on the SVG container
@@ -122,12 +124,14 @@
     const resistor = closest(e.target, '.part')
     if (resistor === null) return // End here if we don't find anything
     // Otherwise get the part from the parts object via it's id
-    selected = parts[resistor.getAttribute('id')]
+    const part = parts[resistor.getAttribute('id')]
+    part.select()
+    selected = part
   })
 
   // helper function to look for the closest element via class name
   function closest(elem, selector) {
-    // Borrowed from: 
+    // Borrowed from:
     // https://gomakethings.com/climbing-up-and-down-the-dom-tree-with-vanilla-javascript/
     // Element.matches() polyfill
     if (!Element.prototype.matches) {
@@ -163,11 +167,12 @@
   window.onmouseup = function(e) {
     if (selected === null) return // if nothing is selected cancel this
     selected.snap() // Snap the selected element
+    selected.deselect()
     selected = null // Set selected to null
   }
 
   // This source element is defined in defs and is not visible.
-  // We will will clone this each time a resistor is added. 
+  // We will will clone this each time a resistor is added.
   const resistorSource = getElement('resistor')
   const capaciterSource = getElement('capaciter')
   // Store the source parts in an object for easy access
@@ -190,7 +195,7 @@
     return document.getElementById(id)
   }
 
-  let partCount = 0 // 
+  let partCount = 0 //
 
   function getPartId() {
     partCount += 1 // Add 1 each time to create unique ids
@@ -200,22 +205,38 @@
 
   // *****************************************
 
-  // Draggable class 
+  // Draggable class
 
-  // The Draggable class 
+  // The Draggable class
   function Draggable(el, x, y) {
+    this.selected = false
     this.x = x // Has three properties
     this.y = y
     this.el = el // This is DOM element!
   }
 
-  // Define some methods for the Draggable class 
+  // Define some methods for the Draggable class
 
   // Drag - moves the element to x and y
   Draggable.prototype.drag = function(x, y) {
     this.x = x
     this.y = y
     this.translate()
+  }
+
+  Draggable.prototype.select = function() {
+    this.el.classList.add('selected')
+    this.selected = true
+  }
+
+  Draggable.prototype.deselect = function() {
+    this.el.classList.remove('selected')
+    this.selected = false
+  }
+
+  Draggable.prototype.toggleSelect = function() {
+    this.el.classList.toggle('selected')
+    this.selected = !this.selected
   }
 
   // Snap - rounds the position to the nearest 40px increment
@@ -227,9 +248,9 @@
     this.translate()
   }
 
-  // Translates - Sets translate with x and y to position element 
-  // Not sure what's best SVG elements have x, y props you can 
-  // also use translate() and translate3d()? 
+  // Translates - Sets translate with x and y to position element
+  // Not sure what's best SVG elements have x, y props you can
+  // also use translate() and translate3d()?
   Draggable.prototype.translate = function() {
     const offset = partSize / 2
     this.el.style.transform = `translate(${this.x - offset}px, ${this.y - offset}px)`
