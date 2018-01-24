@@ -63,6 +63,7 @@
   // Get reference to DOM elements via ids
   const well = getElement('well')
   const container = getElement('container')
+  const tiles = {}
 
   // Defines the currently selected draggable
   let selected = null
@@ -73,8 +74,16 @@
     const tile = makeTile()
     // Make a new draggable that references the alien at the mouse position
     const draggable = new Draggable(tile, e.clientX, e.clientY)
+    tiles[draggable.id] = draggable
     // Mark this as selected
     selected = draggable
+  }
+
+  container.onmousedown = function(e) {
+    const tile = closest(e.target, '.tile')
+    if (tile === null) return
+    console.log(tile)
+    selected = tiles[tile.getAttribute('id')]
   }
 
   // Define a mouse move on container
@@ -131,6 +140,8 @@
     this.x = x // Has three properties
     this.y = y
     this.el = el // This is DOM element!
+    this.id = Draggable.getTileId()
+    this.el.id = this.id
   }
 
   // Define some methods for the Draggable class
@@ -170,6 +181,42 @@
     // Set the CSS transform translate
     this.el.style.transform = `translate3d(${this.x - offsetX}px, ${this.y - offsetY}px, 0)`
     this.el.style.zIndex = this.isDragging ? 99999 : Math.floor(this.y)
+  }
+
+
+
+  // helper function to look for the closest element via class name
+  function closest(elem, selector) {
+    // Borrowed from:
+    // https://gomakethings.com/climbing-up-and-down-the-dom-tree-with-vanilla-javascript/
+    // Element.matches() polyfill
+    if (!Element.prototype.matches) {
+      Element.prototype.matches =
+        Element.prototype.matchesSelector ||
+        Element.prototype.mozMatchesSelector ||
+        Element.prototype.msMatchesSelector ||
+        Element.prototype.oMatchesSelector ||
+        Element.prototype.webkitMatchesSelector ||
+        function(s) {
+          var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+            i = matches.length;
+          while (--i >= 0 && matches.item(i) !== this) {}
+          return i > -1;
+        };
+    }
+
+    // Get closest match
+    for (; elem && elem !== document; elem = elem.parentNode) {
+      if (elem.matches(selector)) return elem;
+    }
+
+    return null;
+  }
+
+  Draggable.count = 0
+  Draggable.getTileId = function() {
+    Draggable.count += 1
+    return "tile-" + Draggable.count
   }
 
 </script>
