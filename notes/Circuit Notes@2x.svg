@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="460px" viewBox="0 0 400 460" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Circuit Notes@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="24.0710678 5.07106781 24.0710678 15.0710678 14.0710678 15.0710678"></polygon>
+        <polygon id="path-2" points="23 28 23 33 18 33"></polygon>
+        <polygon id="path-3" points="19 25 19 30 14 30"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Circuit-Notes">
+            <polyline id="Path-4" stroke="#979797" points="40 100 50 100 65 90"></polyline>
+            <path d="M80,100 L70,100" id="Path-5" stroke="#979797"></path>
+            <g id="Switch" transform="translate(37.000000, 170.000000)">
+                <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
+                <path d="" id="Path-2" stroke="#979797"></path>
+                <polyline id="Path-3" stroke="#979797" points="3 10 13 10 16 5 19 15 22 5 25 15 28 5 31 15 33 10 43 10"></polyline>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
+                <circle id="Oval-2" stroke="#979797" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
+            </g>
+            <g id="Switch-Copy" transform="translate(37.000000, 210.000000)">
+                <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
+                <path d="" id="Path-2" stroke="#979797"></path>
+                <path d="M3,10 L43.5030863,10" id="Path-3" stroke="#979797"></path>
+                <g id="Rectangle-5" transform="translate(19.071068, 10.071068) rotate(-45.000000) translate(-19.071068, -10.071068) ">
+                    <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <path stroke="#979797" stroke-width="1" d="M23.5710678,6.27817459 L15.2781746,14.5710678 L23.5710678,14.5710678 L23.5710678,6.27817459 Z"></path>
+                </g>
+                <path d="M25.5,2.5 L25.5,17.5" id="Line-7" stroke="#979797" stroke-linecap="square"></path>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
+                <circle id="Oval-2" stroke="#979797" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
+            </g>
+            <g id="resistor-copy-3" transform="translate(37.000000, 90.000000)">
+                <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
+                <path d="" id="Path-2" stroke="#979797"></path>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
+                <circle id="Oval-2" stroke="#979797" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
+            </g>
+            <rect id="Rectangle-3" stroke="#000000" x="120.5" y="240.5" width="199" height="179"></rect>
+            <g id="resistor-copy-5" transform="translate(200.000000, 340.000000) rotate(-270.000000) translate(-200.000000, -340.000000) translate(177.000000, 330.000000)">
+                <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
+                <path d="" id="Path-2" stroke="#979797"></path>
+                <polyline id="Path-3" stroke="#979797" points="3 10 13 10 16 5 19 15 22 5 25 15 28 5 31 15 33 10 43 10"></polyline>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
+                <circle id="Oval-2" stroke="#979797" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
+            </g>
+            <g id="resistor-copy-4" transform="translate(200.000000, 180.000000) rotate(-270.000000) translate(-200.000000, -180.000000) translate(177.000000, 170.000000)">
+                <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
+                <path d="" id="Path-2" stroke="#979797"></path>
+                <polyline id="Path-3" stroke="#979797" points="3 10 13 10 16 5 19 15 22 5 25 15 28 5 31 15 33 10 43 10"></polyline>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
+                <circle id="Oval-2" stroke="#979797" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
+            </g>
+            <g id="Group-3" transform="translate(140.000000, 115.000000)">
+                <g id="resistor-copy" transform="translate(17.000000, 35.000000)">
+                    <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
+                    <path d="" id="Path-2" stroke="#979797"></path>
+                    <polyline id="Path-3" stroke="#D0021B" points="3 10 13 10 16 5 19 15 22 5 25 15 28 5 31 15 33 10 43 10"></polyline>
+                    <circle id="Oval" stroke="#D0021B" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
+                    <circle id="Oval-2" stroke="#D0021B" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
+                </g>
+                <circle id="Oval-3" stroke="#D0021B" cx="40" cy="45" r="40"></circle>
+                <g id="Group-2" transform="translate(45.000000, 0.000000)" stroke="#D0021B">
+                    <circle id="Oval-4" fill="#D8D8D8" cx="10" cy="10" r="10"></circle>
+                    <path d="M14.5,5.5 L5.5,14.5" id="Line-4" stroke-linecap="square"></path>
+                    <path d="M5.5,5.5 L14.5,14.5" id="Line-5" stroke-linecap="square"></path>
+                </g>
+                <g id="Group" transform="translate(70.000000, 35.000000)" stroke="#D0021B">
+                    <circle id="Oval-4-Copy" fill="#D8D8D8" cx="10" cy="10" r="10"></circle>
+                    <path d="M10,15 C12.7614237,15 15,12.7614237 15,10 C15,7.23857625 12.7614237,5 10,5 C7.23857625,5 5,7.23857625 5,10" id="Oval-5" fill="#D8D8D8"></path>
+                    <path d="M9.5,14.5 L12.0495098,11.9504902" id="Line-6" stroke-linecap="square"></path>
+                    <path d="M9.5,17.5 L12.0495098,14.9504902" id="Line-6-Copy" stroke-linecap="square" transform="translate(11.000000, 16.000000) scale(1, -1) translate(-11.000000, -16.000000) "></path>
+                </g>
+                <g id="Group-Copy" transform="translate(50.000000, 70.000000)">
+                    <circle id="Oval-4-Copy" stroke="#D0021B" fill="#D8D8D8" cx="10" cy="10" r="10"></circle>
+                    <path d="M10,3 L10,17" id="Path-9" stroke="#979797"></path>
+                    <polyline id="Rectangle-2" stroke="#D0021B" points="10 15 5 15 5 5 5 5 10 5"></polyline>
+                    <polyline id="Rectangle-2-Copy" stroke="#979797" points="10 5 15 5 15 15 10 15"></polyline>
+                </g>
+            </g>
+            <g id="Group-3-Copy" transform="translate(157.000000, 310.000000)">
+                <g id="resistor-copy">
+                    <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
+                    <path d="" id="Path-2" stroke="#979797"></path>
+                    <polyline id="Path-3" stroke="#D0021B" points="3 10 13 10 16 5 19 15 22 5 25 15 28 5 31 15 33 10 43 10"></polyline>
+                    <circle id="Oval" stroke="#D0021B" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
+                    <circle id="Oval-2" stroke="#D0021B" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
+                </g>
+            </g>
+            <g id="Group-Copy-3" transform="translate(160.000000, 245.000000)">
+                <circle id="Oval-4-Copy" stroke="#D0021B" fill="#D8D8D8" cx="10" cy="10" r="10"></circle>
+                <path d="M10,3 L10,17" id="Path-9" stroke="#979797"></path>
+                <polyline id="Rectangle-2" stroke="#D0021B" points="10 15 5 15 5 5 5 5 10 5"></polyline>
+                <polyline id="Rectangle-2-Copy" stroke="#979797" points="10 5 15 5 15 15 10 15"></polyline>
+            </g>
+            <g id="Group-2" transform="translate(190.000000, 245.000000)" stroke="#D0021B">
+                <circle id="Oval-4" fill="#D8D8D8" cx="10" cy="10" r="10"></circle>
+                <path d="M14.5,5.5 L5.5,14.5" id="Line-4" stroke-linecap="square"></path>
+                <path d="M5.5,5.5 L14.5,14.5" id="Line-5" stroke-linecap="square"></path>
+            </g>
+            <g id="Group-Copy-2" transform="translate(130.000000, 246.000000)" stroke="#D0021B">
+                <circle id="Oval-4-Copy" fill="#D8D8D8" cx="10" cy="10" r="10"></circle>
+                <path d="M10,15 C12.7614237,15 15,12.7614237 15,10 C15,7.23857625 12.7614237,5 10,5 C7.23857625,5 5,7.23857625 5,10" id="Oval-5" fill="#D8D8D8"></path>
+                <path d="M9.5,14.5 L12.0495098,11.9504902" id="Line-6" stroke-linecap="square"></path>
+                <path d="M9.5,17.5 L12.0495098,14.9504902" id="Line-6-Copy" stroke-linecap="square" transform="translate(11.000000, 16.000000) scale(1, -1) translate(-11.000000, -16.000000) "></path>
+            </g>
+            <g id="capaciter" transform="translate(37.000000, 130.000000)">
+                <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
+                <path d="" id="Path-2" stroke="#979797"></path>
+                <path d="M3,10 L20,10 M26,10 L43,10" id="Path-3" stroke="#979797"></path>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
+                <circle id="Oval-2" stroke="#979797" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
+                <path d="M20.5,0.5 L20.5,19.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+                <path d="M25.5,0.5 L25.5,19.5" id="Line-Copy" stroke="#979797" stroke-linecap="square"></path>
+            </g>
+            <g id="Transistor" transform="translate(37.000000, 37.000000)">
+                <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="13" width="20" height="20"></rect>
+                <path d="M13.5,13.5 L13.5,32.5" id="Line-3" stroke="#979797" stroke-width="2" stroke-linecap="square"></path>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="23" r="3"></circle>
+                <circle id="Oval-Copy" stroke="#979797" fill="#D8D8D8" cx="23" cy="43" r="3"></circle>
+                <circle id="Oval-Copy-2" stroke="#979797" fill="#D8D8D8" cx="23" cy="3" r="3"></circle>
+                <polyline id="Path-6" stroke="#979797" points="14 25 23 33 23 43"></polyline>
+                <g id="Rectangle-4">
+                    <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    <path stroke="#979797" stroke-width="1" d="M22.5,29.2071068 L19.2071068,32.5 L22.5,32.5 L22.5,29.2071068 Z"></path>
+                </g>
+                <polyline id="Path-7" stroke="#979797" points="14 21 23 13 23 3"></polyline>
+                <path d="M13,23 L3,23" id="Path-8" stroke="#979797"></path>
+            </g>
+            <g id="Transistor-Copy" transform="translate(77.000000, 37.000000)">
+                <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="13" width="20" height="20"></rect>
+                <path d="M13.5,13.5 L13.5,32.5" id="Line-3" stroke="#979797" stroke-width="2" stroke-linecap="square"></path>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="23" r="3"></circle>
+                <circle id="Oval-Copy" stroke="#979797" fill="#D8D8D8" cx="23" cy="43" r="3"></circle>
+                <circle id="Oval-Copy-2" stroke="#979797" fill="#D8D8D8" cx="23" cy="3" r="3"></circle>
+                <polyline id="Path-6" stroke="#979797" points="14 25 23 33 23 43"></polyline>
+                <g id="Rectangle-4" transform="translate(16.500000, 27.500000) scale(-1, -1) translate(-16.500000, -27.500000) ">
+                    <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    <path stroke="#979797" stroke-width="1" d="M18.5,26.2071068 L15.2071068,29.5 L18.5,29.5 L18.5,26.2071068 Z"></path>
+                </g>
+                <polyline id="Path-7" stroke="#979797" points="14 21 23 13 23 3"></polyline>
+                <path d="M13,23 L3,23" id="Path-8" stroke="#979797"></path>
+            </g>
+            <g id="Transistor-Copy-2" transform="translate(117.000000, 37.000000)">
+                <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="13" width="20" height="20"></rect>
+                <path d="M13.5,13.5 L13.5,32.5" id="Line-3" stroke="#979797" stroke-width="2" stroke-linecap="square"></path>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="23" r="3"></circle>
+                <circle id="Oval-Copy" stroke="#979797" fill="#D8D8D8" cx="23" cy="43" r="3"></circle>
+                <circle id="Oval-Copy-2" stroke="#979797" fill="#D8D8D8" cx="23" cy="3" r="3"></circle>
+                <polyline id="Path-6" stroke="#979797" points="14 28 23 28 23 43"></polyline>
+                <polyline id="Path-7" stroke="#979797" points="14 18 23 18 23 3"></polyline>
+                <path d="M13,23 L3,23" id="Path-8" stroke="#979797"></path>
+            </g>
+            <g id="Group-4" transform="translate(295.000000, 244.000000)">
+                <g id="Group-Copy-4" transform="translate(0.000000, 1.000000)" fill="#D8D8D8" stroke="#D0021B">
+                    <circle id="Oval-4-Copy" cx="10" cy="10" r="10"></circle>
+                </g>
+                <text id="i" font-family="Lobster-Regular, Lobster" font-size="16" font-weight="normal" fill="#D0021B">
+                    <tspan x="8.328125" y="16">i</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
