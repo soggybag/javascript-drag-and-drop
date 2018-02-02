@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="400px" height="460px" viewBox="0 0 400 460" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="721px" height="460px" viewBox="0 0 721 460" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
     <title>Circuit Notes@2x</title>
     <desc>Created with Sketch.</desc>
@@ -45,14 +45,14 @@
                 <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
                 <circle id="Oval-2" stroke="#979797" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
             </g>
-            <g id="resistor-copy-4" transform="translate(200.000000, 180.000000) rotate(-270.000000) translate(-200.000000, -180.000000) translate(177.000000, 170.000000)">
+            <g id="resistor-copy-4" transform="translate(280.000000, 125.000000) rotate(-270.000000) translate(-280.000000, -125.000000) translate(257.000000, 115.000000)">
                 <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
                 <path d="" id="Path-2" stroke="#979797"></path>
                 <polyline id="Path-3" stroke="#979797" points="3 10 13 10 16 5 19 15 22 5 25 15 28 5 31 15 33 10 43 10"></polyline>
                 <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="3" cy="10" r="3"></circle>
                 <circle id="Oval-2" stroke="#979797" fill="#D8D8D8" cx="43" cy="10" r="3"></circle>
             </g>
-            <g id="Group-3" transform="translate(140.000000, 115.000000)">
+            <g id="Group-3" transform="translate(220.000000, 60.000000)">
                 <g id="resistor-copy" transform="translate(17.000000, 35.000000)">
                     <rect id="Rectangle" fill-opacity="0.163354846" fill="#FF0000" x="13" y="0" width="20" height="20"></rect>
                     <path d="" id="Path-2" stroke="#979797"></path>
@@ -160,6 +160,23 @@
                     <tspan x="8.328125" y="16">i</tspan>
                 </text>
             </g>
+            <text id="Selecting-a-part-the" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" fill="#000000">
+                <tspan x="320" y="80">Selecting a part the part turns red a circle with options </tspan>
+                <tspan x="320" y="98">appears around the part allowing the part to be:</tspan>
+                <tspan x="320" y="116"></tspan>
+                <tspan x="320" y="134">- rotated</tspan>
+                <tspan x="320" y="152">- mirrored </tspan>
+                <tspan x="320" y="170">- deleted</tspan>
+            </text>
+            <text id="selecting-a-part-the" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" fill="#000000">
+                <tspan x="326" y="251">selecting a part the turns red to show it is selected. </tspan>
+                <tspan x="326" y="269">Options at the top of the app allow the selected part </tspan>
+                <tspan x="326" y="287">to be:  </tspan>
+                <tspan x="326" y="305"></tspan>
+                <tspan x="326" y="323">- rotated</tspan>
+                <tspan x="326" y="341">- mirrored </tspan>
+                <tspan x="326" y="359">- deleted</tspan>
+            </text>
         </g>
     </g>
 </svg>
